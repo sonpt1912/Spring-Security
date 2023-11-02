@@ -1,7 +1,8 @@
-package com.example.spring_jwt.service;
+package com.example.authservice.service.impl;
 
-import com.example.spring_jwt.model.User;
-import com.example.spring_jwt.repository.UserRepository;
+
+import com.example.authservice.entity.User;
+import com.example.authservice.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -15,10 +16,8 @@ public class CustomerUserDetailService implements UserDetailsService {
     private UserRepository userRepository;
 
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-
         // load data from db
         User user = userRepository.findUserByUsername(username);
-
         return user;
     }
 }
